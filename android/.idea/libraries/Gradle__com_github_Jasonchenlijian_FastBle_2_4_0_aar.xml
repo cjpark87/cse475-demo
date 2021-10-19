@@ -1,0 +1,14 @@
+<component name="libraryTable">
+  <library name="Gradle: com.github.Jasonchenlijian:FastBle:2.4.0@aar">
+    <CLASSES>
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/90a80291d3a8df0002462be2513f5d87/jetified-FastBle-2.4.0/res" />
+      <root url="jar://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02c5848da63d5ce6ca9b81456c3bc35a/jetified-FastBle-2.4.0/jars/classes.jar!/" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02c5848da63d5ce6ca9b81456c3bc35a/jetified-FastBle-2.4.0/res" />
+      <root url="file://$USER_HOME$/.gradle/caches/transforms-2/files-2.1/02c5848da63d5ce6ca9b81456c3bc35a/jetified-FastBle-2.4.0/AndroidManifest.xml" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.github.Jasonchenlijian/FastBle/2.4.0/6e94dff8eaa851c466b0cc0663c1f5b8da4953de/FastBle-2.4.0-sources.jar!/" />
+    </SOURCES>
+  </library>
+</component>
