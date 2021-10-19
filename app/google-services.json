@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "835445046838",
+    "firebase_url": "https://cse-475-default-rtdb.europe-west1.firebasedatabase.app",
+    "project_id": "cse-475",
+    "storage_bucket": "cse-475.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:835445046838:android:643e76557120786811a297",
+        "android_client_info": {
+          "package_name": "com.example.ble_keyboard"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "835445046838-6nhfb185mdg06vlh52ahkm46i95i227g.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDzL1v52YRByd7Tkh8rnlcoRbsqQhLzslE"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "835445046838-6nhfb185mdg06vlh52ahkm46i95i227g.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
