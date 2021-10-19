@@ -1,4 +1,4 @@
-rom pybleno import Characteristic
+from pybleno import Characteristic
 import array
 import struct
 import sys
