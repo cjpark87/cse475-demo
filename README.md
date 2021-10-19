@@ -3,13 +3,11 @@
 - Install pybleno 
 ```
 pip install pybleno
-
 ```
 
 - Run ble.py
 ```
 python ble.py
-
 ```
 
 ## Android
