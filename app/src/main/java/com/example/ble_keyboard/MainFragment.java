@@ -34,23 +34,11 @@ public class MainFragment extends Fragment {
     public void onViewCreated(@NonNull View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-
-
-        view.findViewById(R.id.button_fetch).setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                database.child("inputs").removeValue();
-
-            }
-        });
-
         ListView listView = (ListView) view.findViewById(R.id.list_inputs);
         ArrayAdapter adapter = new ArrayAdapter<String>(getActivity(), android.R.layout.simple_list_item_1);
         listView.setAdapter(adapter);
 
-
-
+        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
         ValueEventListener postListener = new ValueEventListener() {
             @Override
             public void onDataChange(DataSnapshot dataSnapshot) {
@@ -75,6 +63,14 @@ public class MainFragment extends Fragment {
             }
         };
         database.addValueEventListener(postListener);
+
+        view.findViewById(R.id.button_fetch).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                database.child("inputs").removeValue();
+
+            }
+        });
     }
 
     public void updateDeviceTextView (String device) {

@@ -59,12 +59,12 @@ public class MainActivity extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        bleDeviceAdapter = new BleDeviceAdapter(MainActivity.this, android.R.layout.select_dialog_singlechoice);
+
         //build dialog for scanning BLE devices
         dialogBuilder = new AlertDialog.Builder(MainActivity.this);
         dialogBuilder.setIcon(R.drawable.ic_launcher_foreground);
         dialogBuilder.setTitle("Select a BLE device");
-
-        bleDeviceAdapter = new BleDeviceAdapter(MainActivity.this, android.R.layout.select_dialog_singlechoice);
 
         dialogBuilder.setNegativeButton("cancel", new DialogInterface.OnClickListener() {
             @Override
@@ -210,6 +210,23 @@ public class MainActivity extends AppCompatActivity {
                         new BleNotifyCallback() {
 
                             @Override
+                            public void onCharacteristicChanged(byte[] data) {
+                                runOnUiThread(new Runnable() {
+                                    @Override
+                                    public void run() {
+                                        //Toast.makeText(MainActivity.this, HexUtil.formatHexString(data, true), Toast.LENGTH_SHORT).show();
+                                        Toast.makeText(MainActivity.this, new String(data), Toast.LENGTH_SHORT).show();
+                                        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
+
+                                        String id = Long.toString(System.currentTimeMillis());
+                                        String date = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date());
+                                        database.child("inputs").child(id).child("time").setValue(date);
+                                        database.child("inputs").child(id).child("value").setValue(new String(data));
+                                    }
+                                });
+                            }
+
+                            @Override
                             public void onNotifySuccess() {
                                 runOnUiThread(new Runnable() {
                                     @Override
@@ -229,21 +246,6 @@ public class MainActivity extends AppCompatActivity {
                                 });
                             }
 
-                            @Override
-                            public void onCharacteristicChanged(byte[] data) {
-                                runOnUiThread(new Runnable() {
-                                    @Override
-                                    public void run() {
-                                        //Toast.makeText(MainActivity.this, HexUtil.formatHexString(data, true), Toast.LENGTH_SHORT).show();
-                                        Toast.makeText(MainActivity.this, new String(data), Toast.LENGTH_SHORT).show();
-                                        DatabaseReference database = FirebaseDatabase.getInstance().getReference();
-
-                                        String id = Long.toString(System.currentTimeMillis());
-                                        database.child("inputs").child(id).child("time").setValue(new SimpleDateFormat("yyyy-MM-dd HH:mm:ss").format(new Date()));
-                                        database.child("inputs").child(id).child("value").setValue(new String(data));
-                                    }
-                                });
-                            }
                         });
 
             }
